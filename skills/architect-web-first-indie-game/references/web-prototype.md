@@ -10,6 +10,10 @@ to expose unfinished telemetry, secrets, debug controls, or private content.
 
 ## Cloudflare Pages default
 
+If version control, the hosting account, or private local credentials are not
+ready, follow [beginner-setup.md](beginner-setup.md) first. Walk the user through
+missing human steps and honor their selected alternatives.
+
 Cloudflare Pages currently supports GitHub and GitLab integration, automatic
 production deployment, branch previews, and framework-free static projects.
 Use the current official setup guide:

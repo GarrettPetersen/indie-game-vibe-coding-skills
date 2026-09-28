@@ -9,6 +9,27 @@ Make the real game playable in a browser early. Treat the browser build as a
 production surface that reveals input, performance, persistence, loading, and
 deployment problems—not as a disposable mockup that will be rewritten later.
 
+## Walk beginners through the human setup
+
+Before infrastructure work, check whether the game already has version control
+and a hosting account. The default human checklist is:
+
+1. Create a GitHub account and a repository for the game, then connect the local
+   checkout and authenticate Git access.
+2. Create a free Cloudflare account, obtain the scoped credentials needed for
+   the planned services, and paste them privately into the project's local
+   ignored `.env` so the agent can configure hosting and web services.
+
+If either step is incomplete, guide the user through it in small, concrete
+steps assuming no coding experience. Use existing setup when present and honor
+an explicit choice of another version-control or hosting provider. Do the
+technical setup the agent can perform; reserve account signup, authentication,
+and private credential entry for the human.
+
+Read [references/beginner-setup.md](references/beginner-setup.md) when either
+prerequisite is missing. Never ask the user to paste credentials into chat or
+display their values while verifying setup.
+
 ## Start with the envelope
 
 Before recommending a renderer, framework, or engine, establish:

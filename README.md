@@ -12,6 +12,20 @@ audits, tags, trailers, and launch planning live in the separate
 [`indie-game-marketing-skills`](https://github.com/GarrettPetersen/indie-game-marketing-skills)
 repository.
 
+## The first human checklist
+
+For someone who has never coded, the agent starts with two prerequisites:
+
+1. Set up a GitHub account and repository for the game.
+2. Set up a free Cloudflare account and paste the required scoped credentials
+   into the local, ignored `.env`, privately, so the agent can configure the web
+   prototype and related services.
+
+The architecture skill walks the user through any missing steps, performs the
+technical setup it can handle, and verifies access without revealing secrets.
+Existing setup or an explicit choice of another version-control/hosting provider
+is respected. Credentials never belong in chat, commits, or browser builds.
+
 ## Skills
 
 - `architect-web-first-indie-game`: choose the renderer and technical

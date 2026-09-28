@@ -24,6 +24,12 @@ explain when a recommendation does not fit the game in front of it.
 
 Checked 28 September 2026:
 
+- [GitHub account setup](https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account)
+  and [repository creation](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository)
+  for beginner onboarding.
+- [Cloudflare API token creation](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/)
+  for scoped credentials supplied through local configuration.
+
 - [Cloudflare Pages Git integration](https://developers.cloudflare.com/pages/get-started/git-integration/)
   for repository deployments and preview builds.
 - [Cloudflare Pages limits](https://developers.cloudflare.com/pages/platform/limits/)
@@ -42,4 +48,3 @@ Checked 28 September 2026:
 
 Product availability, limits, API shapes, pricing, and deployment behavior can
 change. Retrieve the current official page before implementing platform code.
-

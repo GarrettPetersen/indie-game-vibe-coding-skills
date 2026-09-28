@@ -6,6 +6,13 @@ Cloudflare fits the project. D1 is suitable when incidents need relational
 queries and durable rows; Analytics Engine may suit aggregate metrics. Verify
 current product availability, limits, and pricing before choosing.
 
+If the Cloudflare account or local credentials are missing, use the beginner
+setup workflow in `architect-web-first-indie-game` when available. Guide the
+human through the account and scoped-token steps, prepare an ignored local
+`.env`, and have them enter credentials privately. Verify access without
+printing secret values. Use their explicit choice of an alternative provider
+when present.
+
 Current first-party references:
 
 - D1 overview: <https://developers.cloudflare.com/d1/>
