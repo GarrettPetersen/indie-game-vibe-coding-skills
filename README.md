@@ -29,14 +29,16 @@ is respected. Credentials never belong in chat, commits, or browser builds.
 ## Skills
 
 - `architect-web-first-indie-game`: choose the renderer and technical
-  boundaries early, ship a browser prototype on Cloudflare Pages, and preserve
-  a path to desktop storefronts.
+  boundaries early, establish a consistent pixel grid when using pixel art,
+  ship a browser prototype on Cloudflare Pages, and preserve a path to desktop
+  storefronts.
 - `instrument-resilient-game`: combine consent-based telemetry, narrow
   production recovery, fail-fast development builds, and useful diagnostics.
 - `design-durable-game-state`: build canonical identities, deterministic state
   transitions, versioned saves, migrations, and safe autosaves.
 - `build-cross-input-localized-game`: make every player-facing feature work
-  across touch, mouse, keyboard, controller, languages, fonts, and layouts.
+  across touch, mouse, keyboard, controller, languages, fonts, and layouts,
+  with accessibility options built into feature design.
 - `maintain-game-credits`: record every asset, license, contributor, and
   consenting playtester when they enter the project.
 - `triage-game-playtest-feedback`: reconcile reports with the actual build and

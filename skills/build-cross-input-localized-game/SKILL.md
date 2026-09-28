@@ -55,6 +55,20 @@ renderer if the game supports one. Accessibility mode may need different fonts
 and metrics while retaining the same painter order, clipping, hit targets,
 content, and full-window behavior.
 
+## Plan accessibility options with each feature
+
+Assess visual, hearing, motor, and cognitive barriers from the first playable
+build. Establish a small, coherent options baseline: readable/scalable text,
+redundant color and audio cues, remapping and hold/toggle alternatives,
+independent audio controls, and reduced motion/flashing where applicable.
+Offer genre-appropriate timing or difficulty assists when agreed with the user.
+
+Read [references/accessibility-options.md](references/accessibility-options.md)
+when designing settings or reviewing a player-facing feature. Options must be
+reachable before the affected gameplay, localized, persisted, and tested with
+the real input/layout flow. Do not claim accessibility support from the presence
+of a settings menu alone.
+
 ## Test the matrix without multiplying logic
 
 For each player-facing state machine, test semantic actions first, then a small
@@ -82,7 +96,8 @@ A player-facing feature is incomplete until:
 4. translations are manually reviewed for ambiguous game terminology, proper
    names, controls, and placeholders;
 5. layout and font behavior is exercised in representative locales/screens;
-6. runtime input switching and focus behavior are tested; and
+6. runtime input switching, focus, and applicable accessibility options are
+   tested; and
 7. credits are updated for any new fonts, icons, audio, art, translators, or
    playtesters.
 

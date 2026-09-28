@@ -55,6 +55,19 @@ GPU complexity when the game does not need it.
 Read [references/architecture-checkpoints.md](references/architecture-checkpoints.md)
 when selecting or reviewing the renderer and module boundaries.
 
+## Establish the pixel grid before pixel-art content
+
+For pixel-art games, choose the logical screen dimensions, base asset pixel
+scale, and aspect-ratio policy early. Author and compose sprites, UI, effects,
+and bitmap text on that grid; arbitrary per-asset scaling creates mixels
+(inconsistent apparent pixel sizes). Keep logical coordinates separate from
+window pixels and world/simulation coordinates.
+
+Read [references/pixel-grid.md](references/pixel-grid.md) when planning or
+changing a pixel-art renderer, resolution, camera, or asset pipeline. Resizing
+the window must follow one deliberate presentation policy, not change each
+asset's scale independently. These constraints do not apply to non-pixel art.
+
 ## Preserve replaceable boundaries
 
 Keep these concepts separate from the first working version:
