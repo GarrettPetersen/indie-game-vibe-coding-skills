@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Durable Game State"
+  short_description: "Build stable identities, saves, and migrations"
+  default_prompt: "Use $design-durable-game-state to design or audit my game state, save format, migrations, and autosave boundaries."

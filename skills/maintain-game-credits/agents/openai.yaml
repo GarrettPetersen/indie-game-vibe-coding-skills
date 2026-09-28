@@ -1,0 +1,4 @@
+interface:
+  display_name: "Maintain Game Credits"
+  short_description: "Track every asset, license, and contributor"
+  default_prompt: "Use $maintain-game-credits to record this asset or contributor and audit the game credits ledger."

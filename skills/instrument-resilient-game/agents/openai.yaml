@@ -1,0 +1,4 @@
+interface:
+  display_name: "Instrument a Resilient Game"
+  short_description: "Balance recovery, telemetry, and fail-fast debug"
+  default_prompt: "Use $instrument-resilient-game to design telemetry, recovery boundaries, and a fail-fast development mode for my game."

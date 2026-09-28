@@ -1,0 +1,4 @@
+interface:
+  display_name: "Architect Web-First Indie Games"
+  short_description: "Choose durable browser-first game architecture"
+  default_prompt: "Use $architect-web-first-indie-game to plan a durable web-first architecture and prototype path for my indie game."

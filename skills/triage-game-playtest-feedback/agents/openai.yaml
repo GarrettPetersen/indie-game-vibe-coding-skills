@@ -1,0 +1,4 @@
+interface:
+  display_name: "Triage Game Playtest Feedback"
+  short_description: "Turn reports and telemetry into verified fixes"
+  default_prompt: "Use $triage-game-playtest-feedback to reconcile these playtest reports with the current build and prioritize the next fixes."

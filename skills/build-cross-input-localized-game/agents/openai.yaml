@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build for Every Player"
+  short_description: "Design input and localization from the start"
+  default_prompt: "Use $build-cross-input-localized-game to make this feature work across touch, mouse, keyboard, controller, and supported languages."
