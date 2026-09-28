@@ -77,6 +77,18 @@ type, subsystem, stable in-game IDs where needed, bounded numeric state, and a
 sanitized error signature. Bound payload size, event frequency, queue length,
 cardinality, retries, and retention.
 
+Telemetry must cover both bugs (including recovered failures) and sustained
+below-threshold FPS. Set the FPS threshold and observation window for the
+game's performance target; distinguish active gameplay from hidden tabs,
+intentional pauses, and loading. Capture bounded frame-time summaries and
+relevant scene context rather than sending every slow frame.
+
+Require a cooldown per incident signature and per low-FPS episode, plus a
+shared transport cooldown and session budget across all event kinds. Coalesce
+repeats into bounded counts; prioritize bugs over routine performance reports.
+Retries and reconnect flushes must obey the same limits. Client throttling and
+server-side abuse protection are both necessary to avoid flooding the service.
+
 Read [references/telemetry-contract.md](references/telemetry-contract.md) before
 designing payloads or consent flow. If Cloudflare is the selected ingestion
 provider, read [references/cloudflare-endpoint.md](references/cloudflare-endpoint.md).

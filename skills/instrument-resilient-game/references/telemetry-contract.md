@@ -44,6 +44,54 @@ account tokens, filesystem paths, or free-form user text.
 Separate high-volume performance samples from rare incident reports. Sample or
 aggregate normal performance; preserve enough stable context for failures.
 
+## Bugs and below-threshold FPS
+
+Report unexpected bugs whether they crash a subsystem, reject an operation, or
+recover locally. Use a stable signature based on the failed invariant and
+subsystem, not changing timestamps or individual entity IDs.
+
+Also report sustained FPS below a configurable performance threshold during
+active gameplay. Measure over a bounded rolling window using a monotonic clock;
+a single slow frame is not a sustained low-FPS episode. Exclude hidden-tab
+throttling, intentional pauses, and loading from gameplay FPS alerts; measure
+loading separately if useful. Include the threshold, window duration, measured
+FPS, frame-time summary, and bounded scene/render workload context. Define
+recovery with hysteresis so measurements near the threshold do not repeatedly
+start new episodes. A continuing episode may send a cooldown-spaced summary,
+never a report per frame. Keep consent requirements identical to bug reports.
+
+## Cooldowns and flood prevention
+
+Enforce limits at collection and delivery, shared across runtime boundaries,
+workers, and both bug and performance events:
+
+- A per-signature cooldown suppresses repeated bugs; a per-episode cooldown
+  suppresses repeated low-FPS reports. Preserve bounded occurrence counts and
+  first/last occurrence times rather than enqueueing every repeat.
+- A global minimum interval between outbound requests and a session-wide event
+  budget protect against many distinct signatures bypassing deduplication.
+  Bound the signature table, event queue, batch size, and aggregation counters.
+- Prioritize actionable bug reports when the budget is tight. Track suppressed
+  and dropped counts locally in diagnostics; reporting those counts must not
+  bypass the limiter or recursively generate incidents.
+- Use bounded exponential backoff with jitter for retries and respect server
+  retry guidance. Offline recovery, page-exit delivery, and reconnect flushes
+  must use the same limiter; never drain a backlog in a burst.
+- Apply server-side request, body-size, and storage/write budgets too. Browser
+  cooldowns can be bypassed, and origin restrictions are not authentication.
+
+Document tunable defaults against the expected playtest population and hosting
+budget. As a starting example, allow one request per 10 seconds, repeat a bug
+signature or ongoing low-FPS episode no more than once per minute, and cap
+events per session; tune these rather than treating them as universal values.
+Do not let telemetry measurement, aggregation, or transport create frame stalls.
+
+Verify with controlled clocks and deterministic transport fakes: repeated bugs
+every frame, many unique signatures, sustained low FPS, recovery/re-entry,
+hidden tabs, concurrent producers, revoked consent, endpoint failures, retry
+responses, and reconnects. Assert bounded request/write counts and memory, no
+catch-up burst, and retained diagnostic context for the first eligible report.
+
 ## Delivery
 
 - batch small events when practical;
