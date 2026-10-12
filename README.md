@@ -39,6 +39,8 @@ is respected. Credentials never belong in chat, commits, or browser builds.
 - `build-cross-input-localized-game`: make every player-facing feature work
   across touch, mouse, keyboard, controller, languages, fonts, and layouts,
   with accessibility options built into feature design.
+- `polish-game-feel`: tune readable action and UI feedback through motion,
+  impacts, bounded camera shake, audio and effects that fit the art direction.
 - `maintain-game-credits`: record every asset, license, contributor, and
   consenting playtester when they enter the project.
 - `triage-game-playtest-feedback`: reconcile reports with the actual build and
@@ -60,6 +62,7 @@ ln -s /absolute/path/to/indie-game-vibe-coding-skills/skills/architect-web-first
 ln -s /absolute/path/to/indie-game-vibe-coding-skills/skills/instrument-resilient-game /absolute/path/to/game/.agents/skills/instrument-resilient-game
 ln -s /absolute/path/to/indie-game-vibe-coding-skills/skills/design-durable-game-state /absolute/path/to/game/.agents/skills/design-durable-game-state
 ln -s /absolute/path/to/indie-game-vibe-coding-skills/skills/build-cross-input-localized-game /absolute/path/to/game/.agents/skills/build-cross-input-localized-game
+ln -s /absolute/path/to/indie-game-vibe-coding-skills/skills/polish-game-feel /absolute/path/to/game/.agents/skills/polish-game-feel
 ln -s /absolute/path/to/indie-game-vibe-coding-skills/skills/maintain-game-credits /absolute/path/to/game/.agents/skills/maintain-game-credits
 ln -s /absolute/path/to/indie-game-vibe-coding-skills/skills/triage-game-playtest-feedback /absolute/path/to/game/.agents/skills/triage-game-playtest-feedback
 ```

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Polish Game Feel"
+  short_description: "Tune readable motion, impact and audio feedback"
+  default_prompt: "Use $polish-game-feel to improve the feedback and physical weight of this game feature while preserving its art direction and gameplay."
