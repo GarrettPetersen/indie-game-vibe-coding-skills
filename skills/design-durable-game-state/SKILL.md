@@ -1,6 +1,6 @@
 ---
 name: design-durable-game-state
-description: Design, implement, migrate, or audit durable game state with canonical entity IDs, deterministic transitions, versioned save schemas, safe autosaves, and rebuildable derived data. Use when adding quests, cities, characters, inventory, relationships, world history, save/load, migrations, replays, or any feature whose references must survive renames and content changes.
+description: Design, implement, migrate, or audit game state with canonical entity IDs, explicit lifecycles, deterministic transitions, versioned save schemas, safe autosaves, and rebuildable derived data. Use for quests, inventory, world history, save/load, migrations, replays, simulation handoffs, multi-stage UI or asynchronous workflows, and references that must survive renames and content changes.
 ---
 
 # Design Durable Game State
@@ -48,6 +48,43 @@ tie-breaking whenever iteration order could affect visible or persisted state.
 Derived indexes and caches must have one authoritative source and be
 rebuildable. Do not serialize a cache merely because rebuilding it was not yet
 implemented.
+
+## Model consequential lifecycles explicitly
+
+Do not encode a multi-stage workflow through scattered flags, nullable fields,
+magic timer values, container membership, or required call ordering. Require an
+explicit state model when those combinations determine legal actions, simulation
+ownership, asynchronous cancellation/resumption, persistence, or once-only effects.
+A named `phase` does not solve this if unrelated flags still conceal its substates.
+
+- Give each workflow one authoritative owner, named states, defined events and
+  guarded transitions. Use an enum, discriminated union, transition table, or
+  small reducer as appropriate; no state-machine library is required.
+- Keep state-specific data with its state and validate combinations at construction,
+  load, and transition boundaries. Derive eligibility and presentation from that
+  model rather than maintaining competing UI flags.
+- Keep independent dimensions independent: a modal's visibility and a job's progress
+  need not become one enormous enum. Define their composition and pause/input
+  ownership explicitly where they interact.
+- Give asynchronous work an operation/session identity. Reject stale completions,
+  define cancellation and failure transitions, and separate the transition decision
+  from I/O and effects. Effects that move money or grant rewards must not replay on
+  repaint, resume, or retry.
+- Test transitions and important event sequences, including cancellation, repeated
+  input, failure, stale completion, and save/resume when supported. Verify enabled
+  actions are executable, invalid transitions are rejected safely, and effects
+  occur once.
+
+Do not ban all implicit state. A self-contained two-state latch, cooldown, or
+animation derived from one authoritative clock is acceptable when its meanings,
+owner, reset/expiry rules, and tests are clear and it cannot express contradictory
+combinations. Do not duplicate a derived phase merely to add an enum.
+
+Refactor existing workflows incrementally when their complexity or defects justify
+it. Establish behavioral tests first, migrate one owner at a time, and remove the
+replaced state rather than retaining two authorities. Preserve gameplay, supported
+saves, production recovery, and measured performance. Do not mix unrequested gameplay
+changes into a structural refactor.
 
 ## Version saves from the first public build
 

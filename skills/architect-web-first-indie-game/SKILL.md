@@ -91,7 +91,9 @@ identity. Renames, relocation, conquest, localization, world-resolution
 changes, and catalog reordering must not break references.
 
 Use `design-durable-game-state` when specifying identities, save schemas, or
-migrations in detail.
+migrations in detail. Its explicit-lifecycle rule also applies to transient UI,
+simulation handoffs, and asynchronous jobs: do not let distributed flags and
+call ordering become the hidden authority for a consequential workflow.
 
 ## Ship the web build continuously
 
